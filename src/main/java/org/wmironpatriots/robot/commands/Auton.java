@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.Command;
 import static org.wmironpatriots.robot.Constants.DriveConstants.*;
-import org.wmironpatriots.robot.subsystems.Drive.Drive;
+
+import org.wmironpatriots.robot.legacy.Drive.Drive;
 
 public class Auton {
   public static SendableChooser<Command> configureAutos(Drive drive) {
