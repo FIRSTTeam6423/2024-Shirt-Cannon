@@ -4,22 +4,48 @@
 
 package org.wmironpatriots.robot;
 
+import org.wmironpatriots.robot.Constants.ControllerConstants;
+import org.wmironpatriots.robot.Util.CommandController;
+import org.wmironpatriots.robot.commands.OperateDrive;
+import org.wmironpatriots.robot.subsystems.drive.Drive;
+
 public class RobotContainer {
   // * ------ SUBSYSTEMS ------
+  public final Drive drive;
 
   // * ------ COMMAND GROUPS ------
+  private final OperateDrive driveJoystick;
 
   // * ------ AUTO (womp womp) ------
 
   // * ------ CONTROLLERS ------
+  public static CommandController driverController = new CommandController(
+    0, 
+    ControllerConstants.DRIVER_DEADBAND, 
+    ControllerConstants.DRIVER_TRIGGER_DEADBAND
+  );
+  public static CommandController operatorController = new CommandController(
+    1, 
+    ControllerConstants.OPERATOR_DEADBAND, 
+    ControllerConstants.OPERATOR_TRIGGER_DEADBAND
+  );
   
   public RobotContainer() {
+    drive = new Drive();
+    driveJoystick = new OperateDrive(drive, driverController);
+
     //* init subsystems here
     configureDefaultCommands();
     configureBindings();
   }
 
-  public void configureDefaultCommands() {}
+  public void configureDefaultCommands() {
+
+    drive.setDefaultCommand(
+      driveJoystick.driveRobot()
+    );
+
+  }
 
   private void configureBindings() {
     // ---- TRIGGERS ----

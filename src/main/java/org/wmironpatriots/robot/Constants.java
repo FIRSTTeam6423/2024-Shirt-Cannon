@@ -17,11 +17,21 @@ import edu.wpi.first.units.Measure;
 // ! some of these values will need to be tuned again
 public class Constants {
 
+    public static final class ControllerConstants {
+        public static final double DRIVER_DEADBAND= 0.025;
+        public static final double OPERATOR_DEADBAND = 0.025;
+        
+        public static final double DRIVER_TRIGGER_DEADBAND = 0.5;
+        public static final double OPERATOR_TRIGGER_DEADBAND = 0.5;
+    }
+
     public class DRIVE_CONSTANTS {
         
         // * Motor IDs
         public static final int[] DRIVE_LEFT_MOTOR_IDS = {0, 1, 2};
         public static final int[] DRIVE_RIGHT_MOTOR_IDS = {3, 4, 5};
+
+        public static double DRIVE_SPEED = 10;
 
     }
     
