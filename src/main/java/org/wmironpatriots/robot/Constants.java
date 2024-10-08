@@ -7,9 +7,9 @@ package org.wmironpatriots.robot;
 // * constants should be imported like this
 // ? import static frc.robot.Constants.SubsytemConstants.*;
 // ! some of these values will need to be tuned again
-public final class Constants {
+public class Constants {
 
-    public class ControllerConstantsK {
+    public static final class ControllerConstantsK {
 
         public static final int kDriveControllerPort = 0;
         public static final double kDriveControllerJoystickDeadband = 0.2;
@@ -17,7 +17,7 @@ public final class Constants {
 
     }
 
-    public class DriveConstantsK {
+    public static final class DriveConstantsK {
         
         // * Motor IDs
         public static final int[] kdriveLeftMotorIDs = {0, 1, 2};
