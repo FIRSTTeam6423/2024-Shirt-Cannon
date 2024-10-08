@@ -20,8 +20,8 @@ public class Constants {
     public static final class DriveConstantsK {
         
         // * Motor IDs
-        public static final int[] kdriveLeftMotorIDs = {0, 1, 2};
-        public static final int[] kdriveRightMotorIDs = {3, 4, 5};
+        public static final int kdriveLeftMotorIDs = 0;
+        public static final int kdriveRightMotorIDs = 1;
     
     }
     
