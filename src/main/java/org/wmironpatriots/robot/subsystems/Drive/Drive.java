@@ -1,6 +1,6 @@
 package org.wmironpatriots.robot.subsystems.drive;
 
-import static org.wmironpatriots.robot.Constants.DRIVE_CONSTANTS.*;
+import static org.wmironpatriots.robot.Constants.DriveConstantsK.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,9 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkLowLevel.MotorType;
 
-public class Drive {
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
+public class Drive extends SubsystemBase {
 
     private final List<CANSparkMax> leftMotors = new ArrayList<>();
     private final List<CANSparkMax> rightMotors = new ArrayList<>();
@@ -18,14 +20,14 @@ public class Drive {
     private final RelativeEncoder rightEncoder;
 
     public Drive() {
-        for(int i = DRIVE_LEFT_MOTOR_IDS.length; i > 0; i--) {
+        for(int i = kdriveLeftMotorIDs.length; i > 0; i--) {
             leftMotors.add(
-                new CANSparkMax(DRIVE_LEFT_MOTOR_IDS[i], MotorType.kBrushless)
+                new CANSparkMax(kdriveLeftMotorIDs[i], MotorType.kBrushless)
             );
         }
-        for(int i = DRIVE_RIGHT_MOTOR_IDS.length; i > 0; i--) {
+        for(int i = kdriveRightMotorIDs.length; i > 0; i--) {
             rightMotors.add(
-                new CANSparkMax(DRIVE_RIGHT_MOTOR_IDS[i], MotorType.kBrushless)
+                new CANSparkMax(kdriveRightMotorIDs[i], MotorType.kBrushless)
             );
         }
 
@@ -44,12 +46,12 @@ public class Drive {
         }
     }
     
-    public void setMotorVoltage(double leftSpeed, double rightSpeed) {
+    public void setMotorSpeed(double leftSpeed, double rightSpeed) {
         for(int i = leftMotors.size(); i > 0; i--) {
-            leftMotors.get(i).setVoltage(leftSpeed);
+            leftMotors.get(i).set(leftSpeed);
         }
         for(int i = rightMotors.size(); i > 0; i--) {
-            rightMotors.get(i).setVoltage(rightSpeed);
+            rightMotors.get(i).set(rightSpeed);
         }
     }
 

@@ -17,12 +17,20 @@ import edu.wpi.first.units.Measure;
 // ! some of these values will need to be tuned again
 public class Constants {
 
-    public class DRIVE_CONSTANTS {
+    public class ControllerConstantsK {
+
+        public static final int kDriveControllerPort = 0;
+        public static final double kDriveControllerJoystickDeadband = 0.2;
+        public static final double kDrivecontrollerTriggerDeadband = 0.2;
+
+    }
+
+    public class DriveConstantsK {
         
         // * Motor IDs
-        public static final int[] DRIVE_LEFT_MOTOR_IDS = {0, 1, 2};
-        public static final int[] DRIVE_RIGHT_MOTOR_IDS = {3, 4, 5};
-
+        public static final int[] kdriveLeftMotorIDs = {0, 1, 2};
+        public static final int[] kdriveRightMotorIDs = {3, 4, 5};
+    
     }
     
 }
