@@ -5,10 +5,15 @@
 package org.wmironpatriots.robot;
 
 import org.wmironpatriots.robot.Constants.ControllerConstantsK;
+import org.wmironpatriots.robot.subsystems.drive.Drive;
 import org.wmironpatriots.robot.util.CommandController;
+
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.Commands;
 
 public class RobotContainer {
   // * ------ SUBSYSTEMS ------
+  private final Drive drive = new Drive();
 
   // * ------ COMMAND GROUPS ------
 
@@ -35,6 +40,19 @@ public class RobotContainer {
   }
 
   public void configureDefaultCommands() {
+
+    drive.setDefaultCommand(
+      Commands.run(
+        () -> {
+          drive.setMotorSpeed(
+            driverController.getJoystickAxis(XboxController.Axis.kLeftY.value), 
+            driverController.getJoystickAxis(XboxController.Axis.kRightY.value)
+          );
+        },
+        drive
+      )
+    );
+
   }
 
   private void configureBindings() {
